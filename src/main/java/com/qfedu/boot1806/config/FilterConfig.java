@@ -1,7 +1,10 @@
 package com.qfedu.boot1806.config;
 
+import com.qfedu.boot1806.cros.CROSFilter;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import javax.servlet.Filter;
 
 /**
  *@Author feri
@@ -11,6 +14,11 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class FilterConfig {
-    //@Bean
-
+    @Bean
+    public FilterRegistrationBean myFilter() {
+        FilterRegistrationBean myFilter = new FilterRegistrationBean();
+        myFilter.addUrlPatterns("/*");
+        myFilter.setFilter(new CROSFilter());
+        return myFilter;
+    }
 }
