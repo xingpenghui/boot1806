@@ -25,6 +25,6 @@ public class SwaggerConfig {
     @Bean  //等价于 <bean>标签
     public Docket createDoc(){
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(createApi()).select().
-                apis(RequestHandlerSelectors.basePackage("com.qfedu.controller")).build();
+                apis(RequestHandlerSelectors.basePackage("com.qfedu.boot1806.controller")).build();
     }
 }
